@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Семинар по БЭМ для Wargaming</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="styles/screen.css">
+</head>
+<body class="list">
+	<!--
+		Debug class on <body> enables
+		cyan grid on slides
+		-->
+	<header class="caption">
+		<h1>Семинар по БЭМ для Wargaming</h1>
+		<p>Владимир Гриненко, Виталий Харисов</p>
+	</header>
+	<section class="slide bem"><div>
+		<img src="pictures/sign_theme_batman.png" alt="BEM">
+	</div></section>
+	<section class="slide title"><div>
+		<h2>БЭМ для Wargaming</h2>
+		<h3>Владимир Гриненко, Виталий Харисов<br>
+			2015</h3>
+		<footer></footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Вопросы</h2>
+		<ul>
+			<li>Какие преимущества даёт разработка интерфейса на БЭМ</li>
+			<li class="next">Как меняется процесс разработки интерфейса</li>
+			<li class="next">Почему шаблоны такие</li>
+			<li class="next">Тестирование</li>
+			<li class="next">Как быстро начать разрабатывать на БЭМ</li>
+		</ul>
+		<footer></footer>
+	</div></section>
+	<section class="slide section"><div>
+		<h2>Преимущества разработки на БЭМ</h2>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Какие преимущества даёт разработка интерфейса на БЭМ</h2>
+		<ul>
+			<li>БЭМ — это разделение интерфейса на блоки</li>
+			<li class="next">ООП в полный рост</li>
+			<li class="next">Единая предметная область</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>БЭМ позволяет</h2>
+		<ul>
+			<li>инкапсулировать реализацию блока</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Нейминг</h2>
+		<p><span class="colored">Б</span>лок__<span class="colored">Э</span>лемент_<span class="colored">М</span>одификатор</p>
+		<footer></footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>БЭМ позволяет</h2>
+		<ul>
+			<li>инкапсулировать реализацию блока</li>
+			<li>наследовать блоки друг от друга</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>БЭМ позволяет</h2>
+		<ul>
+			<li>инкапсулировать реализацию блока</li>
+			<li>наследовать блоки друг от друга</li>
+			<li>полиморфизм в терминах модификаторов</li>
+		</ul>
+	</div></section>
+	<section class="slide cover w"><div>
+		<img src="pictures/cat_type_red.jpg" alt="cat_type_red">
+		<footer></footer>
+	</div></section>
+	<section class="slide cover h"><div>
+		<img src="pictures/cat_state_wet.jpg" alt="cat_state_wet">
+		<footer></footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>3 источника, 3 составные части</h2>
+		<ul>
+			<li>Методология</li>
+			<li class="next">Инструменты</li>
+			<li class="next">Библиотеки готовых блоков</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Преимущества</h2>
+		<ul>
+			<li>Уменьшение сложности кода</li>
+			<li class="next">Упрощение коммуникации</li>
+			<li class="next">Реиспользование кода</li>
+			<li class="next">Ускорение разработки</li>
+		</ul>
+	</div></section>
+	<section class="slide section"><div>
+		<h2>Как меняется процесс разработки</h2>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Отличия БЭМ</h2>
+		<ul>
+			<li>Абстракция над DOM — мыслим в терминах блоков</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>BEMJSON</h2>
+		<pre><code>{
+    block: 'button',
+    mods: { theme: 'promo' },
+    content: 'Разместить рекламу'
+}</code></pre>
+		<footer></footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Отличия БЭМ</h2>
+		<ul>
+			<li>Абстракция над DOM — мыслим в терминах блоков</li>
+			<li>Разделение на блоки отражено и на файловой системе</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Файловая система</h2>
+		<pre><code>prj/
+    blocks/
+        header/
+            header.css
+            header.js
+            header.tmpl
+            header.svg
+            header.md
+		</code></pre>
+		<footer></footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Файловая система</h2>
+		<pre><code>prj/
+    blocks/
+        header/
+            _theme/
+        	    header_theme_simple.css
+        	    header_theme_full.css
+            __logo/
+                header__logo.css
+		</code></pre>
+		<footer></footer>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Отличия БЭМ</h2>
+		<ul>
+			<li>Абстракция над DOM — мыслим в терминах блоков</li>
+			<li>Разделение на блоки отражено и на файловой системе</li>
+			<li>Декларативность во всем</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>BEMHTML</h2>
+		<pre><code> block('button')(
+    tag()('input'),
+    attrs()({ type: 'button'})
+)</code></pre>
+		<footer></footer>
+	</div></section>
+
+	<section class="slide section"><div>
+		<h2>Как работать с шаблонами</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Шаблоны</h2>
+		<ul>
+			<li>Декларативные</li>
+			<li class="next">На JavaScript</li>
+			<li class="next">БЭМ-ориентированные</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Шаблоны. Принцип работы</h2>
+		<ul>
+			<li>Селектор (матчер) находит подходящие узлы дерева</li>
+			<li class="next">Тело шаблона определяет результат преобразования</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Шаблоны. Двухзвенная архитектура</h2>
+		<ul>
+			<li>Сырые данные во view-ориентированные</li>
+			<li class="next">View-ориентированные данные в HTML</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Первый этап</h2>
+		<pre><code style="font-size: 19px; line-height: 1.6em">Данные:
+{
+    "login": "vasia",
+    "name": "Василий"
+}
+
+Преобразование:
+blocks.user = function(data) {
+    return {
+        block: 'user',
+        url: 'https://mysite.ru/users/' + data.login,
+        content: data.name
+    };
+}</code></pre>
+		<footer></footer>
+	</div></section>
+
+
+	<section class="slide"><div>
+		<h2>Второй этап</h2>
+		<pre><code style="font-size: 19px; line-height: 1.6em">Данные:
+{
+    block: 'user',
+    url: 'https://mysite.ru/users/vasia',
+    content: 'Василий'
+}
+
+Преобразование:
+block('user')(
+    tag()('a'),
+    attrs()({ href: this.ctx.url })
+);
+
+Результат: &lt;a class="user" href="https://mysite.ru/users/vasia"&gt;Василий&lt;/a&gt;
+</code></pre>
+		<footer></footer>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Почему шаблоны такие</h2>
+		<ul>
+			<li>гибкое изменение разметки</li>
+			<li class="next">нет копипаста</li>
+			<li class="next">библиотеки готовых компонентов с дешевым обновлением</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Аналогия</h2>
+		<pre><code style="font-size: 19px; line-height: 1.6em">&lt;div style="width: 100px; height: 50px; font-size: 14px;"&gt;&lt;/div&gt;</code></pre>
+		VS.
+		<pre><code style="font-size: 19px; line-height: 1.6em">
+&lt;div class="block"&gt;&lt;/div&gt;
++
+.block {
+    width: 100px;
+    height: 50px;
+    font-size: 14px;
+}
+		</code></pre>
+		<footer></footer>
+	</div></section>
+
+	<section class="slide section"><div>
+		<h2>Тестирование</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что тестируем</h2>
+		<ul>
+			<li>Unit-тесты на JS (клиентский и серверный)</li>
+			<li class="next">Верстку</li>
+			<li class="next">Шаблоны</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Чем тестируем</h2>
+		<ul>
+			<li><a href="https://github.com/enb-bem/enb-bem-specs">enb-bem-specs</a> (mocha + must)</li>
+			<li class="next"><a href="https://ru.bem.info/tools/testing/gemini/">gemini</a></li>
+			<li class="next"><a href="https://github.com/bem/html-differ">html-differ</a> + <a href="https://github.com/enb-bem/enb-bem-tmpl-specs">enb-bem-tmpl-specs</a></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Как тестируем</h2>
+		<ul>
+			<li>travis</li>
+			<li class="next">покрытие на все виды тестов</li>
+		</ul>
+	</div></section>
+
+	<section class="slide section"><div>
+		<h2>Как быстро начать разрабатывать на БЭМ</h2>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Quick start</h2>
+		<ul>
+			<li><a href="https://ru.bem.info/">bem.info</a></li>
+			<li class="next"><a href="https://github.com/bem/project-stub">git clone https://github.com/bem/project-stub.git</a></li>
+		</ul>
+	</div></section>
+	<p class="badge"><a href="https://github.com/tadatuta">Fork me on Github</a></p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"><div></div></div>
+	<script src="shower-core/shower.min.js"></script>
+	<!-- Copyright © 2013 Yours Truly, Famous Inc. -->
+</body>
+</html>
